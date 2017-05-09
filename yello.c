@@ -4,16 +4,20 @@
 #include <stdio.h>
 #include <limits.h>
 
-void printE(void) {
-    for (int i = 0; i < 7; i++) {
-	for (int j = 0; j < 5; j++) {
+#define maxInputs 100
+#define start {
+#define end }
+
+void printE(void) start
+    for (int i = 0; i < 7; i++) start
+	for (int j = 0; j < 5; j++) start
 // print only if the first row or 6th or 1 st column 
 	    if ((i == 0) || (i == 6) || (j == 0) || ((i == 3) && (j < 3)))
 		printf("* ");
-	}
+	end
 	printf("\n");
-    }
-}
+    end
+end
 
 void continueLearn(void) {
     int input = 0;
@@ -40,7 +44,7 @@ int recAdd(int *nums, int *answ) {
 }
 
 void recAddCalc(void) {
-    int inputs[100];
+    int inputs[maxInputs];
     int i = -1;
     int answer = 0;
     printf
