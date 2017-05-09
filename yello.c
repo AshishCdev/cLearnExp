@@ -28,6 +28,30 @@ void continueLearn(void) {
     }
 }
 
+int recAdd(int *nums, int *answ) {
+    if (*nums == 0)
+	return *nums;
+    else {
+	printf("%d + ", *nums);
+	*answ = *nums + recAdd((nums += 1), answ);
+    }
+    return *answ;
+}
+
+void recAddCalc(void) {
+    int inputs[100];
+    int i = -1;
+    int answer = 0;
+    printf
+	("Enter the inputs as many as number you want but no more than 100\nenter 0 if done\n");
+    do {
+	i++;
+	scanf("%d", &inputs[i]);
+    } while (inputs[i] != 0);
+    recAdd(&inputs[0], &answer);
+    printf("And you got your sum with recursion = %d\n", answer);
+}
+
 int global = 111;
 int main(void) {
     char newChar[2][2][10];
@@ -51,5 +75,6 @@ int main(void) {
 	       local, global);
     }
     printf("Outside the parenthesis global is %d.\n", global);
+    recAddCalc();		//take the inputs from user and add recursively
     return 0;
 }
