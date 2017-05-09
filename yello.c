@@ -1,4 +1,5 @@
 //indent -kr -br -ce -brf yello.c
+//gcc -std=c99 -Wall -g -o yelloO yello.c
 
 #include <stdio.h>
 #include <limits.h>
