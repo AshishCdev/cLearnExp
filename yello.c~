@@ -96,6 +96,17 @@ void workWithTypedef(void) {
     printf("my typedef array first->3 is %d and second->2 is %d\n",
 	   first[3], second[2]);
 }
+
+void pointers(void) {
+    void *point;
+    int a = 100;
+    int b = 1111;
+    int * const intpt = &a;
+    *intpt = b;
+    printf("Now at the address %d the value is changed to the %d\n", intpt,
+	   a);
+}
+
 int main(void) {
     char newChar[2][2][10];
     int **dp;
@@ -126,5 +137,6 @@ int main(void) {
 	 exp.b, exp.c[0], exp.c[1]);
     workWithTypedef();
     packedStruct();
+    pointers();
     return 0;
 }
