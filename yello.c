@@ -61,17 +61,31 @@ union examp {
     char c[2];
 } exp;
 
+void workWithTypedef(void) {
+    typedef int myArrayType[100];
+    myArrayType first, second;
+    first[3] = 100;
+    second[2] = 1000;
+    typedef union examp myDataType;
+    myDataType localPrac;
+    localPrac.b = 0xabcd;
+    printf
+	("myData int b is 0x%x which is broken into char L=0x%02x and char H=0x%02x\n",
+	 localPrac.b, localPrac.c[0], localPrac.c[1]);
+    printf("my typedef array first->3 is %d and second->2 is %d\n",
+	   first[3], second[2]);
+}
 int main(void) {
     char newChar[2][2][10];
     int **dp;
     int Vresult;
     int value = 2;
     printf("Ashu pagla hai\n");
-    printf("Size of int=%d\n", sizeof(int));
+    printf("Size of int=%d\n", (int) sizeof(int));
     printf("Size of double pointer is=%d\n", (int) sizeof(dp));
-    printf("The max of int is %u\n", UINT_MAX);
+    printf("The max of int is %u\n\n", UINT_MAX);
     printE();
-    printf("The size of 2x2x10 char array is %d\n", (int) sizeof(newChar));
+    printf("\nThe size of 2x2x10 char array is %d\n", (int) sizeof(newChar));
     Vresult = (value++ * 5) + (value++ * 3);
     printf("result is the %d\n", Vresult);
     continueLearn();
@@ -88,5 +102,6 @@ int main(void) {
     printf
 	("int b is 0x%x which is broken into char L=0x%x and char H=0x%x\n",
 	 exp.b, exp.c[0], exp.c[1]);
+    workWithTypedef();
     return 0;
 }
