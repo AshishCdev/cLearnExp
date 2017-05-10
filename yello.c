@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 #include <limits.h>
-
+#include <stdint.h>
+#include <stdbool.h>
 #define maxInputs 100
 #define start {
 #define end }
@@ -61,6 +62,26 @@ union examp {
     char c[2];
 } exp;
 
+void packedStruct(void) {
+//wrong variable declaration since only structure can be packed and bit addressable    
+// unsigned int pac:2;
+    bool i = 1;
+    typedef struct thisOne {
+	unsigned int oneBit:1;
+	unsigned int twoBit:2;
+	unsigned int fiveBit:5;
+    } packStruct;
+    packStruct sample;
+    uint8_t example;
+    printf
+	("I am in packed struct function and the size of packed struct is %d byte while 8 bit is %d byte\nsizeof() function returns the %d for the size of boolean\n",
+	 (int) sizeof(sample), (int) sizeof(example), (int) sizeof(i));
+    sample.fiveBit = 0;
+    sample.fiveBit--;
+    printf
+	("which is wrong because Max value that fiveBit can get upto %d\n",
+	 sample.fiveBit);
+}
 void workWithTypedef(void) {
     typedef int myArrayType[100];
     myArrayType first, second;
@@ -85,7 +106,8 @@ int main(void) {
     printf("Size of double pointer is=%d\n", (int) sizeof(dp));
     printf("The max of int is %u\n\n", UINT_MAX);
     printE();
-    printf("\nThe size of 2x2x10 char array is %d\n", (int) sizeof(newChar));
+    printf("\nThe size of 2x2x10 char array is %d\n",
+	   (int) sizeof(newChar));
     Vresult = (value++ * 5) + (value++ * 3);
     printf("result is the %d\n", Vresult);
     continueLearn();
@@ -103,5 +125,6 @@ int main(void) {
 	("int b is 0x%x which is broken into char L=0x%x and char H=0x%x\n",
 	 exp.b, exp.c[0], exp.c[1]);
     workWithTypedef();
+    packedStruct();
     return 0;
 }
