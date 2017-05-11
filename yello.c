@@ -133,9 +133,15 @@ void pointers(void) {
 	printf("%d,", *intPtr[1]);
     }
     printf("\n");
+    char *charPt = "Ashish Kushwaha";
+    printf("char addressed by pointer with index is %c\n", charPt[7]);
 }
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    printf("Name of the program is %s\n", argv[0]);
+    for (int i = 1; i < argc; i++) {
+	printf("%d th command line argument is\n %s\n", i, argv[i]);
+    }
     char newChar[2][2][10];
     int **dp;
     int Vresult;
