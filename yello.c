@@ -74,7 +74,8 @@ void packedStruct(void) {
     packStruct sample;
     uint8_t example;
     printf
-	("I am in packed struct function and the size of packed struct is %d byte while 8 bit is %d byte\nsizeof() function returns the %d for the size of boolean\n",
+	("I am in packed struct function and the size of packed struct is %d byte\
+	while 8 bit is %d byte\nsizeof() function returns the %d for the size of boolean\n",
 	 (int) sizeof(sample), (int) sizeof(example), (int) sizeof(i));
     sample.fiveBit = 0;
     sample.fiveBit--;
@@ -134,7 +135,7 @@ void pointers(void) {
     }
     printf("\n");
     char *charPt = "Ashish Kushwaha";
-    printf("char addressed by pointer with index is %c\n", charPt[7]);
+    printf("char addressed by pointer with index is %c\n", charPt[5]);
 }
 
 int main(int argc, char *argv[]) {
