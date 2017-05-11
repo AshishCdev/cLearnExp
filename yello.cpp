@@ -7,6 +7,12 @@ int add(int a, int b) {
     return (a + b);
 }
 
+int *returnPt(int copyVariable, int padding) {
+    int *retPt;
+    retPt = &copyVariable;
+    return retPt;
+}
+
 int main(int argc, char *argv[]) {
     using namespace std;
     cout << "Yello world!! it is C++ here " << endl;
@@ -15,7 +21,10 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
 	printf("%d th command line argument is\n %s\n", i, argv[i]);
     }
-    int (*addPt) (int, int) = add;
-    cout << (*addPt) (10, 11) << endl;
+    int (*addPt[]) (int, int) = {
+    add};
+    cout << (*addPt[0]) (10, 11) << endl;
+    cout << "returned value of the copied int variable 100 is " <<
+	(*returnPt) (100, 0) << endl;
     return 0;
 }
