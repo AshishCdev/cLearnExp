@@ -101,10 +101,38 @@ void pointers(void) {
     void *point;
     int a = 100;
     int b = 1111;
-    int * const intpt = &a;
+    int *const intpt = &a;
+    typedef int *const myIntPt;
+    myIntPt newIntPt = &a;
+    //newIntPt = &b;
     *intpt = b;
     printf("Now at the address %d the value is changed to the %d\n", intpt,
 	   a);
+    int fir[10];
+    int sec[10][5];
+    for (int j = 0; j < 5; j++) {
+	for (int i = 0; i < 10; i++)
+	    sec[i][j] = ((j * 10) + i + 1);
+    }
+    // for (int j = 0; j < 10; j++) {
+//      for (int i = 0; i < 5; i++) {
+//          fprintf(stderr, " %d", sec[j][i]);
+//      }
+//      printf("\n");
+    //  }
+
+    int *intPtr[] = {
+	(&fir[0]), (&sec[0][0])
+    };
+    //int *intPtr = &sec[0][0];
+    //while (*intPtr[1]) {
+//      printf("%d,", *intPtr[1]);
+//      ++intPtr[1];
+    //  }
+    for (int i = 0; i < 50; i++, (intPtr[1])++) {
+	printf("%d,", *intPtr[1]);
+    }
+    printf("\n");
 }
 
 int main(void) {
