@@ -111,6 +111,52 @@ namespace ashish {
     printName();
     cout << "My age is " << ashish::age << endl;
 }
+
+class person {
+  private:char *color;
+    int money;
+    char *city;
+    char *wifeName;
+    int age;
+  public:char *name;
+    void creatPerson(int Age, int mney, char *wifename, char *clr,
+		     char *cty);
+    void tellsName(void);
+    int tellsAge(void);
+    void tllAbtYrSlf(void);
+};
+
+void person::creatPerson(int Age, int mney, char *wifename, char *clr,
+			 char *cty) {
+    color = clr;
+    money = mney;
+    wifeName = wifename;
+    age = Age;
+    city = cty;
+}
+
+void person::tellsName(void) {
+    cout << "My name is" << name << endl;
+}
+
+int person::tellsAge(void) {
+    return age;
+}
+
+void person::tllAbtYrSlf(void) {
+    tellsName();
+    cout << "I am " << color << " and my age " << age <<
+	" and I live in the " << city << endl;
+    cout << "My wife " << wifeName << " is so beautyful\n";
+}
+
+void objects(void) {
+    person nedStark;
+    nedStark.name = "Ned Stark";
+    nedStark.creatPerson(24, 250000, "Cat stark", "white", "winterfell");
+    nedStark.tllAbtYrSlf();
+}
+
 int main(int argc, char *argv[]) {
     cout << "Yello world!! it is C++ here " << endl;
     cout << "Ashu yaha bhi pagla hai" << endl;
@@ -138,5 +184,6 @@ int main(int argc, char *argv[]) {
 	" and 100+47 = " << add(100, 47) << endl;
     nameSpace();
     //newDelete();
+    objects();
     return 0;
 }
