@@ -47,6 +47,29 @@ void fncOvrlod(void) {
   //  int a = 2;
     //return s;
 //}
+inline int recAdd(int *nums, int *answ) {
+    if (*nums == 0)
+	return *nums;
+    else {
+	printf("%d + ", *nums);
+	*answ = *nums + recAdd((nums += 1), answ);
+    }
+    return *answ;
+}
+
+void recAddCalc(void) {
+    int inputs[100];
+    int i = -1;
+    int answer = 0;
+    printf
+	("Enter the inputs as many as number you want but no more than 100\nenter 0 if done\n");
+    do {
+	i++;
+	scanf("%d", &inputs[i]);
+    } while (inputs[i] != 0);
+    recAdd(&inputs[0], &answer);
+    printf("And you got your sum with recursion = %d\n", answer);
+}
 
 int main(int argc, char *argv[]) {
     cout << "Yello world!! it is C++ here " << endl;
@@ -67,5 +90,7 @@ int main(int argc, char *argv[]) {
     cout << "b containing " << b << endl;
     cout << "argument list out put " << argList(100, 54) << endl;
     fncOvrlod();
+    recAddCalc();
+    recAddCalc();
     return 0;
 }
