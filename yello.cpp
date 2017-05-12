@@ -3,6 +3,10 @@
 
 #include <iostream>
 
+template < typename any > any add(any a, any b) {
+    return (a + b);
+}
+
 using namespace std;
 
 int add(int a, int b) {
@@ -25,7 +29,8 @@ void workWithVoidPt(void) {
 	 dummy);
 }
 
-int argList(int a = 10, int b = 19) {
+int argList(int a = 10, int b = 19, char *name = "Ashish Kushwaha") {
+    cout << name << endl;
     return a + b;
 }
 
@@ -82,6 +87,17 @@ int refPt(void) {
 	<< (*intPt) << endl;
 }
 
+void newDelete(void) {
+    char buffer[100];
+    int *p1 = new int[10];	//In memory heap
+    cout << "first ptr is " << p1 << endl;
+    int *p2 = new(buffer) int[10];	// buffer array
+    cout << "second ptr is " << p2 << endl;
+    delete[]p1;
+    delete[]p2;
+    cout << "deletedd both of the allocated memeory" << endl;
+}
+
 int main(int argc, char *argv[]) {
     cout << "Yello world!! it is C++ here " << endl;
     cout << "Ashu yaha bhi pagla hai" << endl;
@@ -99,10 +115,14 @@ int main(int argc, char *argv[]) {
     //int &b = functionRefer();
     int &b = s;
     cout << "b containing " << b << endl;
-    cout << "argument list out put " << argList(100, 54) << endl;
+    cout << "argument list out put " << argList(100, 54, "Ashish") << endl;
     fncOvrlod();
     recAddCalc();
     recAddCalc();
     refPt();
+    cout << "added using function template " << "2.3+3.5 = " << add(2.3,
+								    3.5) <<
+	" and 100+47 = " << add(100, 47) << endl;
+    newDelete();
     return 0;
 }
