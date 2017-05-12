@@ -98,6 +98,19 @@ void newDelete(void) {
     cout << "deletedd both of the allocated memeory" << endl;
 }
 
+namespace ashish {
+    int age = 24;
+    void printName(void) {
+	cout << "My name is Ashish Kushwaha" << endl;
+}} namespace sonu {
+    int age = 18;
+    void printName(void) {
+	cout << "My name is Sonu" << endl;
+}} void nameSpace(void) {
+    using namespace sonu;
+    printName();
+    cout << "My age is " << ashish::age << endl;
+}
 int main(int argc, char *argv[]) {
     cout << "Yello world!! it is C++ here " << endl;
     cout << "Ashu yaha bhi pagla hai" << endl;
@@ -123,6 +136,7 @@ int main(int argc, char *argv[]) {
     cout << "added using function template " << "2.3+3.5 = " << add(2.3,
 								    3.5) <<
 	" and 100+47 = " << add(100, 47) << endl;
-    newDelete();
+    nameSpace();
+    //newDelete();
     return 0;
 }
