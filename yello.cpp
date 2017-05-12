@@ -71,6 +71,17 @@ void recAddCalc(void) {
     printf("And you got your sum with recursion = %d\n", answer);
 }
 
+int refPt(void) {
+    int intVar = 1090;
+    int intVar2 = 2000;
+    int *intPt = &intVar;
+    int *(&(intRefPt)) = intPt;
+    intRefPt = &intVar2;
+    cout <<
+	"changed the pointer variable via reference operator to point different variable "
+	<< (*intPt) << endl;
+}
+
 int main(int argc, char *argv[]) {
     cout << "Yello world!! it is C++ here " << endl;
     cout << "Ashu yaha bhi pagla hai" << endl;
@@ -92,5 +103,6 @@ int main(int argc, char *argv[]) {
     fncOvrlod();
     recAddCalc();
     recAddCalc();
+    refPt();
     return 0;
 }
