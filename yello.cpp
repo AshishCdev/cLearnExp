@@ -95,7 +95,7 @@ void newDelete(void) {
     cout << "second ptr is " << p2 << endl;
     delete[]p1;
     delete[]p2;
-    cout << "deletedd both of the allocated memeory" << endl;
+    cout << "deleted both of the allocated memeory" << endl;
 }
 
 namespace ashish {
