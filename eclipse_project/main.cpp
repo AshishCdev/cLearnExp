@@ -10,7 +10,7 @@ void variArg(int num,...){
 	va_list vaList;
 	va_start(vaList,num);
 	for (int i = 0; i < num; ++i) {
-		cout << "arg " << i << " is "<<va_arg(vaList,int) <<endl;
+		cout << "arg " << i << " is "<<va_arg(vaList,char *) <<endl;
 	}
 	va_end(vaList);
 }
@@ -23,6 +23,6 @@ int main(int argc, char *argv[]){
 		cout<<"Local int is"<<global<<endl;
 	}
 	cout<<"Again Global int is "<<global<<endl;
-	variArg(4,34,8,78,89);
+	variArg(4,"String 1","String 2","String 3","String 4");
 	return 0;
 }
